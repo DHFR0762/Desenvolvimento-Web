@@ -1,0 +1,44 @@
+body {
+    background-color: #000000; 
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;                  /* tamanho */
+    font-weight: normal;              /* negrito (bold, normal) */
+    font-style: normal;               /* itálico (italic, normal) */
+}
+
+/* Seletor de TAG: afeta todos os h2 */
+h1 {
+    color: #ffffff;
+    text-align: center;   /* centraliza o título */
+    font-size: 60px;                  /* tamanho */
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.2;           /* espaçamento entre linhas */
+    text-align: justify;
+}
+
+.vermelho {
+    color: #ff0000;
+    font-style: italic;
+    text-align: justify;  /* texto das notícias fica justificado */
+}
+
+.branco {
+    background-color: #DDDDDD;
+    color: #000000;
+    text-align: justify;  /* texto das notícias fica justificado */
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    padding: 2px;
+    margin: 20px 0;
+}
+/* Seletor de ID: afeta apenas o elemento com id="titulo-principal" */
+#titulo-principal {
+    font-size: 30px;
+}
