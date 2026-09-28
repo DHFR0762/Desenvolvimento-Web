@@ -1,0 +1,315 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+  --bg-primary: #0b0b0b;    /* Azul escuro moderno de fundo */
+  --bg-card: #000000;          /* Fundo dos blocos/cards */
+  --text-main: #f8fafc;        /* Texto principal (quase branco) */
+  --text-muted: #ffffff;       /* Texto secundário/suave */
+  --text-error: #d80b0b; 
+  --accent: #ffffff;           /* Cor de destaque principal (Azul Cyan) */
+  --accent-hover: #ffffff;     /* Hover nos botões e links */
+  --border-color: #ffffff;     /* Borda suave */
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Esconde as linhas <hr> e substitui o espaçamento por margens limpas */
+hr {
+  display: none;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO (HEADER)
+   ========================================================================== */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  margin-bottom: 24px;
+}
+
+/* Container que faz o círculo e centraliza o conteúdo */
+.avatar-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 5px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  margin: 0 auto 16px auto;
+  
+  /* Centralização Flexbox real */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  background-color: var(--bg-card, #1e293b);
+  overflow: hidden;
+  padding: 16px; /* Margem interna de segurança para o texto */
+  box-sizing: border-box;
+}
+
+/* Imagem ocupando todo o espaço do container */
+.avatar-container img.vermelho {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  
+  /* Estilo do texto alt caso a imagem quebre */
+  font-size: 0.8rem;
+  color: var(--text-error, #ff4d4d);
+  font-style: normal;
+}
+
+#titulo-principal h1 {
+  font-family: 'PT Serif', serif;
+  font-size: 2.2rem;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 2px 0;
+}
+
+/* ==========================================================================
+   3. NAVEGAÇÃO (NAV)
+   ========================================================================== */
+.destaque {
+  background-color: var(--bg-card);
+  padding: 16px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 32px;
+}
+
+.destaque ol {
+  padding-left: 20px;
+}
+
+.destaque li {
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.destaque a {
+  color: var(#0000ee);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.destaque a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. SEÇÕES EM GERAL (SECTIONS & CARDS)
+   ========================================================================== */
+section {
+  background-color: var(--bg-card);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  margin-bottom: 32px;
+}
+
+h2, h3 {
+  color: var(--accent);
+  font-family: 'PT Serif', serif;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+
+p {
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+b, strong {
+  color: var(--text-main);
+}
+
+/* Listas internas das seções */
+ol, ul {
+  padding-left: 24px;
+  color: var(--text-muted);
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   5. TABELA DE EXPERIÊNCIAS
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: #161616;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+td {
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   6. FORMULÁRIO DE CONTATO
+   ========================================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+label {
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: -4px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  color: #161616;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--accent-hover);
+  color: #ffffff;
+}
+
+/* Sub-bloco de Redes Sociais */
+/* Sub-bloco de Redes Sociais */
+.branco {
+  /* Fundo branco e borda suave para destacar */
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  
+  /* Cor preta para os textos gerais da seção */
+  color: #000000 !important;
+  
+  padding: 20px !important;
+  border-radius: var(--radius-lg);
+}
+
+/* Cor preta para o Título (h2) e linha divisória */
+.branco h2 {
+  color: #000000 !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+/* Caso existam links de texto dentro da área, força a cor preta/escura */
+.branco a {
+  color: #000000 !important;
+}
+
+.branco a img {
+  height: 48px;
+  width: auto;
+  margin-right: 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  vertical-align: middle;
+}
+
+.branco a img:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   7. RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: 24px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
