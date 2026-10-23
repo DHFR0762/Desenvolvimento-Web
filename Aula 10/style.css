@@ -1,0 +1,363 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+  --bg-primary: #0b0b0b;    /* Fundo escuro da página */
+  --bg-card: #161616;       /* Fundo dos blocos e cards */
+  --text-main: #f8fafc;     /* Texto principal */
+  --text-muted: #a1a1aa;    /* Texto secundário */
+  --text-error: #d80b0b; 
+  --accent: #ffffff;        /* Destaque / bordas */
+  --accent-hover: #e2e8f0;  /* Hover suave */
+  --border-color: #27272a;  /* Borda sutil */
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+hr {
+  display: none;
+}
+
+/* ==========================================================================
+   2. ESTRUTURA DO LAYOUT EM CSS GRID
+   ========================================================================== */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 24px;
+}
+
+.grid-header { grid-area: header; }
+.grid-nav    { grid-area: nav; }
+.grid-main   { grid-area: main; }
+.grid-footer { grid-area: footer; }
+
+/* Grid interna para as seções dentro do MAIN */
+.grid-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* ==========================================================================
+   3. CABEÇALHO (HEADER)
+   ========================================================================== */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.avatar-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  margin: 0 auto 16px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #000;
+  overflow: hidden;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.avatar-container img.vermelho {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  color: var(--text-error);
+}
+
+#titulo-principal h1 {
+  font-family: 'PT Serif', serif;
+  font-size: 2rem;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 2px 0;
+}
+
+/* ==========================================================================
+   4. NAVEGAÇÃO (NAV)
+   ========================================================================== */
+.destaque {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: var(--bg-card);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+}
+
+.destaque a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.destaque a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   5. SEÇÕES (SECTIONS & CARDS)
+   ========================================================================== */
+section {
+  background-color: var(--bg-card);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+h2, h3 {
+  color: var(--accent);
+  font-family: 'PT Serif', serif;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+b, strong {
+  color: var(--text-main);
+}
+
+ol, ul {
+  padding-left: 24px;
+  color: var(--text-muted);
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Sub-grid para a seção de Curiosidades (Hobbies + Sites) */
+.curiosidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Lista de Habilidades com Flexbox */
+.habilidades-lista {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hab-item {
+  background-color: #000;
+  color: var(--text-main);
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+/* Grid para os Cards de Projetos */
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.projeto-card {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.projeto-card h3 {
+  color: #000000;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1.2rem;
+}
+
+.projeto-card p {
+  color: #333333;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6. FORMULÁRIO E CONTATO
+   ========================================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+label {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  color: #000000;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Bloco de Redes Sociais */
+.branco {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #000000 !important;
+  padding: 24px !important;
+  border-radius: var(--radius-lg);
+}
+
+.branco h2 {
+  color: #000000 !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+.redes-icones {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.redes-icones a img {
+  height: 48px;
+  width: auto;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.redes-icones a img:hover {
+  transform: translateY(-4px);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   7. RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 600px) {
+  .grid-container {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  header {
+    padding: 24px 16px;
+  }
+
+  .destaque {
+    gap: 12px;
+    font-size: 0.85rem;
+  }
+
+  section {
+    padding: 20px;
+  }
+}
